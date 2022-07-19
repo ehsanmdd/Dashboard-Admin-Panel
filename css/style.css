@@ -24,7 +24,19 @@
     --card-padding:                 1.8rem;
     --padding-1:                    1.2;
 
-    --box-shadow:                   0 2rem 3rem var(--color-light);
+    --box-shadow:                   0 2rem 3rem rgba(0, 0, 0, 0.18);;
+}
+
+/* ----------------- ROOT VARAIABLES DARK THEME --------------- */
+
+.dark-theme-variable {
+    --color-background:         #181e1e;
+    --color-white:              #202528;
+    --color-dark:               #edeffd;
+    --color-info-dark:          #a3bdcc;
+    --color-dark-variant:       #a3bdcc;
+    --color-light:              rgba(0, 0, 0, 0.4)
+    --box-shadow:               0 2rem 3rem var(--color-light)
 }
 
 * {
@@ -207,6 +219,9 @@ aside .sidebar .message-count {
 main {
     margin-top: 1rem;
 }
+main h1 {
+    color: var(--color-dark);
+}
 
 main .data {
     display: inline-block;
@@ -325,6 +340,7 @@ main .recent-orders {
 
 main .recent-orders h2 {
     margin-bottom: .8rem;
+    color: var(--color-dark);
 }
 
 main .recent-orders table {
@@ -345,6 +361,10 @@ main table tbody td {
     height: 3.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
+}
+main table th {
+    padding-top: .5rem;
+    color: var(--color-dark);
 }
 
 
@@ -417,6 +437,7 @@ main .recent-orders a {
 
 .right .recent-updates h2{
     margin-bottom: 1rem;
+    color: var(--color-dark);
 }
 
 .right .recent-updates .updates {
@@ -443,11 +464,15 @@ main .recent-orders a {
 /* ------------ RIGHT SIDE ANALYTICS ---------------- */
 
 .right .sales-analytics {
-    margin-top: 2rem;
+    margin-top: 6rem;
 }
 
 .right .sales-analytics h2 {
     margin-bottom: 1rem;
+    color: var(--color-dark);
+}
+.right .sales-analytics h3 {
+    color: var(--color-dark);
 }
 
 .right .sales-analytics .item {
@@ -490,12 +515,16 @@ main .recent-orders a {
 }
 
 .right .sales-analytics .add-product {
-    background-color: transparent;
     border: 2px dashed var(--color-primary);
     color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.right .sales-analytics .add-product:hover {
+    background: var(--color-primary);
+    color: white;
 }
 
 .right .sales-analytics .add-product div {
@@ -558,7 +587,7 @@ main .recent-orders a {
     }
     aside {
         position: fixed;
-        left: 0;
+        left: -100%;
         background: var(--color-white);
         width: 18rem;
         height: 100vh;
@@ -566,6 +595,12 @@ main .recent-orders a {
         box-shadow: 1rem 3rem 4rem var(--color-light);
         padding-right: var(--card-padding);
         display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+    @keyframes showMenu {
+        to {
+            left: 0;
+        }
     }
     aside .logo {
         margin-left: 1rem;
@@ -593,7 +628,7 @@ main .recent-orders a {
         padding: 0 1rem;
     }
     main .insights > div {
-        width: 100%;
+        width: 96%;
     }
     main .recent-orders {
         position: relative;
